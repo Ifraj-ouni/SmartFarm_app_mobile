@@ -1,0 +1,8 @@
+env/
+*.dll
+*.pyd
+*.h5
+*.pb
+*.zip
+*.csv
+*.xlsx

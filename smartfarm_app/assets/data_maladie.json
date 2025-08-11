@@ -1,0 +1,236 @@
+{
+  "Apple___Apple_scab": {
+    "nom_francais": "Tavelure du pommier",
+    "description": "La tavelure du pommier est une maladie fongique causée par Venturia inaequalis. Elle se développe dans des conditions fraîches et humides, affectant feuilles, fruits et jeunes pousses. Sans contrôle, elle réduit fortement la qualité et la quantité de la récolte en provoquant déformations et chute prématurée des feuilles.",
+    "symptomes": "Apparition de taches vert foncé à noires sur les feuilles, qui s'élargissent, se craquellent et provoquent jaunissement et chute précoce. Sur les fruits, lésions sombres, surélevées, fissurées et déformées. Les jeunes pousses peuvent être tordues ou nécrosées.",
+    "traitement": "Traitement préventif par fongicides dès le stade bouton floraison, renouvelé selon conditions humides. Taille pour améliorer circulation d’air et réduire humidité. Ramassage et destruction des feuilles mortes à l’automne pour réduire inoculum. Utilisation de variétés résistantes."
+  },
+  "Apple___Black_rot": {
+    "nom_francais": "Pourriture noire du pommier",
+    "description": "Maladie fongique causée par Botryosphaeria obtusa, se développant en conditions chaudes et humides. Elle attaque fruits, feuilles et rameaux, provoquant pourriture des fruits et chancres sur branches qui affaiblissent l’arbre.",
+    "symptomes": "Sur les fruits, taches brunes rondes qui s’étendent, noircissent, ramollissent et pourrissent. Sur branches, chancres noirs déprimés entraînant dessèchement et mort des pousses. Les feuilles peuvent présenter des lésions sombres.",
+    "traitement": "Élimination des parties malades (taille sanitaire), nettoyage des fruits tombés. Pulvérisations fongicides en début de saison. Bonne aération du verger par taille adaptée."
+  },
+  "Apple___Cedar_apple_rust": {
+    "nom_francais": "Rouille du pommier",
+    "description": "Maladie causée par Gymnosporangium juniperi-virginianae nécessitant deux hôtes (genévrier et pommier). Elle provoque des taches orange vif et déformations sur feuilles et fruits, réduisant la photosynthèse et la vigueur de l’arbre.",
+    "symptomes": "Taches rondes orange vif sur feuilles et fruits, souvent avec halo jaune. Déformation et chute prématurée des feuilles. Sur genévriers, excroissances gélatineuses orange libérant spores.",
+    "traitement": "Élimination ou éloignement des genévriers à proximité. Pulvérisations fongicides préventives au printemps. Taille pour favoriser circulation d’air."
+  },
+  "Apple___healthy": {
+    "nom_francais": "Pommier sain",
+    "description": "Aucun symptôme détecté, arbre en bonne santé sans maladie.",
+    "symptomes": "Feuilles vertes, uniformes et fruits sains sans déformation ni tache.",
+    "traitement": "Maintenir bonnes pratiques culturales et surveiller régulièrement."
+  },
+  "Background_without_leaves": {
+    "nom_francais": "Arrière-plan sans feuilles",
+    "description": "Image ne contenant pas de feuilles ou plantes, donc aucune maladie détectable.",
+    "symptomes": "N/A",
+    "traitement": "N/A"
+  },
+  "Blueberry___healthy": {
+    "nom_francais": "Myrtille saine",
+    "description": "Plante de myrtille en bonne santé, sans signes de maladie ni stress.",
+    "symptomes": "Feuilles vertes et fruits sans défaut ni tache.",
+    "traitement": "Bonne gestion culturale et surveillance régulière."
+  },
+  "Cherry___Powdery_mildew": {
+    "nom_francais": "Oïdium du cerisier",
+    "description": "Maladie fongique causée par Podosphaera clandestina. Se manifeste par un feutrage blanc poudreux qui affecte feuilles, fruits et jeunes pousses, limitant croissance et qualité des récoltes.",
+    "symptomes": "Feutrage blanc poudreux sur faces supérieures des feuilles, déformations, chute prématurée. Fruits recouverts d’un revêtement poudreux blanc.",
+    "traitement": "Traitements fongicides préventifs. Taille pour aérer la végétation. Élimination des parties infectées."
+  },
+  "Cherry___healthy": {
+    "nom_francais": "Cerisier sain",
+    "description": "Plante sans signe d’infection ni maladie.",
+    "symptomes": "Feuilles et fruits sains, verts et vigoureux.",
+    "traitement": "Surveillance et bonnes pratiques culturales."
+  },
+  "Corn___Cercospora_leaf_spot Gray_leaf_spot": {
+    "nom_francais": "Tache grise de la feuille de maïs (Cercospora)",
+    "description": "Maladie fongique provoquée par Cercospora zeae-maydis. Elle engendre des lésions gris clair sur les feuilles, diminuant la photosynthèse et la productivité du maïs.",
+    "symptomes": "Taches grisâtres aux bords foncés, dessèchement des feuilles, chute prématurée.",
+    "traitement": "Rotation des cultures, usage de semences résistantes, traitements fongicides en cas de forte infection."
+  },
+  "Corn___Common_rust": {
+    "nom_francais": "Rouille commune du maïs",
+    "description": "Maladie fongique causée par Puccinia sorghi, se manifestant par des pustules orange-brun sur les feuilles qui affaiblissent la plante.",
+    "symptomes": "Pustules orange à brunes sur face inférieure des feuilles, jaunissement, dessèchement.",
+    "traitement": "Variétés résistantes, traitements fongicides, rotation des cultures."
+  },
+  "Corn___Northern_Leaf_Blight": {
+    "nom_francais": "Brûlure bactérienne du maïs",
+    "description": "Maladie bactérienne causée par Pseudomonas syringae provoquant flétrissement et nécrose des feuilles.",
+    "symptomes": "Taches nécrotiques allongées, jaunissement et réduction croissance.",
+    "traitement": "Semences saines, éviter excès irrigation, traitements bactéricides si nécessaire."
+  },
+  "Corn___healthy": {
+    "nom_francais": "Maïs sain",
+    "description": "Plante de maïs sans signes d’infection ni maladie.",
+    "symptomes": "Feuilles vertes uniformes, absence de taches ou déformations.",
+    "traitement": "Gestion culturale adéquate."
+  },
+  "Grape___Black_rot": {
+    "nom_francais": "Pourriture noire du raisin",
+    "description": "Maladie fongique causée par Guignardia bidwellii qui attaque feuilles, grappes et rameaux, entraînant taches noires, chancres et pourriture.",
+    "symptomes": "Taches noires sur feuilles, chancres sur rameaux, fruits pourris et verruqueux.",
+    "traitement": "Traitements fongicides, taille sanitaire, élimination des parties malades."
+  },
+  "Grape___Esca_(Black_Measles)": {
+    "nom_francais": "Esca (Black Measles) de la vigne",
+    "description": "Maladie complexe causée par plusieurs champignons entraînant dépérissement du bois, jaunissement des feuilles et pourriture des grappes.",
+    "symptomes": "Feuilles jaunies avec nervures vertes, bois pourri, fruits noirs et secs.",
+    "traitement": "Élimination des parties infectées, taille sévère, gestion du vignoble pour réduire stress."
+  },
+  "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+    "nom_francais": "Brûlure foliaire de la vigne (Isariopsis)",
+    "description": "Maladie fongique provoquée par Isariopsis vitis causant taches brunes entourées d’un halo jaune, avec chute prématurée des feuilles.",
+    "symptomes": "Taches brunes avec halo jaune, dessèchement, chute foliaire.",
+    "traitement": "Traitement fongicide, taille pour meilleure aération, élimination feuilles infectées."
+  },
+  "Grape___healthy": {
+    "nom_francais": "Vigne saine",
+    "description": "Plante sans maladie détectée.",
+    "symptomes": "Feuilles vertes, grappes saines et vigoureuses.",
+    "traitement": "Surveillance et bonnes pratiques culturales."
+  },
+  "Orange___Haunglongbing_(Citrus_greening)": {
+    "nom_francais": "Greening des agrumes (Huanglongbing)",
+    "description": "Maladie bactérienne grave causée par Candidatus Liberibacter spp., transmise par un insecte vecteur. Elle provoque dépérissement rapide des arbres et fruits verts déformés.",
+    "symptomes": "Feuilles jaunies avec nervures vertes, fruits verts déformés, chute précoce, mort progressive.",
+    "traitement": "Élimination rapide des arbres infectés, lutte contre vecteur, usage de porte-greffes résistants."
+  },
+  "Peach___Bacterial_spot": {
+    "nom_francais": "Tache bactérienne du pêcher",
+    "description": "Maladie bactérienne causée par Xanthomonas campestris, affectant feuilles, fruits et rameaux avec taches nécrotiques et déformation.",
+    "symptomes": "Taches brunes sur feuilles avec halo jaune, cicatrices sur fruits, déformations.",
+    "traitement": "Traitements cupriques, taille sanitaire, élimination parties infectées."
+  },
+  "Peach___healthy": {
+    "nom_francais": "Pêcher sain",
+    "description": "Plante saine sans infection.",
+    "symptomes": "Feuilles vertes et fruits sains.",
+    "traitement": "Bonnes pratiques culturales."
+  },
+  "Pepper,_bell___Bacterial_spot": {
+    "nom_francais": "Tache bactérienne du poivron",
+    "description": "Maladie bactérienne causée par Xanthomonas campestris pv. vesicatoria, entraînant taches nécrotiques sur feuilles et fruits.",
+    "symptomes": "Taches sombres sur feuilles et fruits, déformations, chute foliaire.",
+    "traitement": "Semences saines, traitements bactéricides, rotation culturale."
+  },
+  "Pepper,_bell___healthy": {
+    "nom_francais": "Poivron sain",
+    "description": "Plante sans signe de maladie.",
+    "symptomes": "Feuilles et fruits sains.",
+    "traitement": "Surveillance et bonnes pratiques."
+  },
+  "Potato___Early_blight": {
+    "nom_francais": "Alternariose précoce de la pomme de terre",
+    "description": "Maladie fongique causée par Alternaria solani, affectant feuilles avec taches brunes aux bords concentriques, réduisant surface foliaire.",
+    "symptomes": "Taches brunes avec anneaux concentriques, dessèchement et chute précoce des feuilles.",
+    "traitement": "Traitements fongicides, élimination résidus infectés."
+  },
+  "Potato___Late_blight": {
+    "nom_francais": "Mildiou de la pomme de terre",
+    "description": "Maladie fongique grave causée par Phytophthora infestans, attaquant feuilles, tiges et tubercules, provoquant pourriture rapide.",
+    "symptomes": "Taches huileuses brun foncé sur feuilles, tiges noircies, tubercules pourris.",
+    "traitement": "Traitements fongicides réguliers, élimination plants infectés, rotation culturale."
+  },
+  "Potato___healthy": {
+    "nom_francais": "Pomme de terre saine",
+    "description": "Plante sans maladie détectée.",
+    "symptomes": "Feuilles vertes, tubercules sains.",
+    "traitement": "Bonnes pratiques culturales."
+  },
+  "Raspberry___healthy": {
+    "nom_francais": "Framboisier sain",
+    "description": "Plante saine sans infection.",
+    "symptomes": "Feuilles vertes et fruits sains.",
+    "traitement": "Surveillance et bonnes pratiques."
+  },
+  "Soybean___healthy": {
+    "nom_francais": "Soja sain",
+    "description": "Plante en bonne santé sans signe de maladie.",
+    "symptomes": "Feuilles vertes, absence de taches.",
+    "traitement": "Bonnes pratiques agricoles."
+  },
+  "Squash___Powdery_mildew": {
+    "nom_francais": "Oïdium de la courge",
+    "description": "Maladie fongique causée par Erysiphe cichoracearum, formant un feutrage blanc poudreux sur feuilles et tiges, limitant croissance et photosynthèse.",
+    "symptomes": "Revêtement blanc poudreux, jaunissement, déformation des feuilles et tiges.",
+    "traitement": "Traitements fongicides, aération des cultures, élimination parties infectées."
+  },
+  "Strawberry___Leaf_scorch": {
+    "nom_francais": "Brûlure foliaire de la fraise",
+    "description": "Maladie bactérienne causée par Xanthomonas fragariae, provoquant flétrissement et dessèchement des feuilles.",
+    "symptomes": "Taches brunes bordées de jaune, décoloration, feuilles flétries.",
+    "traitement": "Traitements bactéricides, élimination feuilles infectées."
+  },
+  "Strawberry___healthy": {
+    "nom_francais": "Fraise saine",
+    "description": "Plante sans signes de maladie.",
+    "symptomes": "Feuilles vertes, fruits sains.",
+    "traitement": "Bonnes pratiques culturales."
+  },
+  "Tomato___Bacterial_spot": {
+    "nom_francais": "Tache bactérienne de la tomate",
+    "description": "Maladie bactérienne causée par Xanthomonas campestris pv. vesicatoria, provoquant taches sombres sur feuilles et fruits, réduisant qualité et rendement.",
+    "symptomes": "Taches sombres, déprimées sur feuilles et fruits, chute foliaire.",
+    "traitement": "Semences saines, traitements bactéricides."
+  },
+  "Tomato___Early_blight": {
+    "nom_francais": "Alternariose précoce de la tomate",
+    "description": "Maladie fongique causée par Alternaria solani, provoquant taches brunes concentriques sur feuilles et fruits, dessèchement et chute prématurée des feuilles.",
+    "symptomes": "Taches brunes avec cercles concentriques, feuilles et fruits endommagés.",
+    "traitement": "Traitements fongicides, élimination débris infectés."
+  },
+  "Tomato___Late_blight": {
+    "nom_francais": "Mildiou de la tomate",
+    "description": "Maladie fongique grave causée par Phytophthora infestans, provoquant taches huileuses sur feuilles, tiges noircies et pourriture des fruits.",
+    "symptomes": "Taches huileuses brun foncé, croissance rapide, fruits pourris.",
+    "traitement": "Traitements fongicides, rotation culturale, élimination plants infectés."
+  },
+  "Tomato___Leaf_Mold": {
+    "nom_francais": "Mildiou du feuillage de la tomate",
+    "description": "Maladie fongique causée par Passalora fulva provoquant taches vert foncé à olive sur feuilles, déformation et chute prématurée.",
+    "symptomes": "Taches vert foncé sur feuilles, déformation, chute prématurée.",
+    "traitement": "Bonne aération, traitement fongicide, élimination feuilles atteintes."
+  },
+  "Tomato___Septoria_leaf_spot": {
+    "nom_francais": "Tache septorienne de la tomate",
+    "description": "Maladie fongique causée par Septoria lycopersici, provoquant taches circulaires brunes sur feuilles, dessèchement et chute.",
+    "symptomes": "Taches circulaires brunes avec centre clair, dessèchement foliaire.",
+    "traitement": "Traitements fongicides, élimination débris, rotation culturale."
+  },
+  "Tomato___Spider_mites Two-spotted_spider_mite": {
+    "nom_francais": "Tétranyque rouge de la tomate",
+    "description": "Insecte ravageur suçant la sève des feuilles, causant jaunissement et dessèchement.",
+    "symptomes": "Petites taches jaunes, toile fine sous feuilles, chute foliaire.",
+    "traitement": "Acaricides, introduction prédateurs naturels."
+  },
+  "Tomato___Target_Spot": {
+    "nom_francais": "Tache cible de la tomate",
+    "description": "Maladie fongique causée par Corynespora cassiicola provoquant taches sombres avec centre clair sur feuilles et fruits.",
+    "symptomes": "Taches sombres avec centre clair, chute foliaire.",
+    "traitement": "Traitements fongicides, élimination feuilles infectées."
+  },
+  "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "nom_francais": "Virus de la mosaïque jaune de la tomate",
+    "description": "Maladie virale transmise par la mouche blanche, provoquant jaunissement et recroquevillement des feuilles, réduisant rendement.",
+    "symptomes": "Feuilles jaunes et recroquevillées, croissance ralentie, fruits déformés.",
+    "traitement": "Lutte contre la mouche blanche, variétés résistantes."
+  },
+  "Tomato___Tomato_mosaic_virus": {
+    "nom_francais": "Virus de la mosaïque de la tomate",
+    "description": "Maladie virale causant taches claires et sombres irrégulières sur feuilles, déformations et baisse de production.",
+    "symptomes": "Taches vert clair et foncé, feuilles déformées et rétrécies.",
+    "traitement": "Semences certifiées, désinfection outils."
+  },
+  "Tomato___healthy": {
+    "nom_francais": "Tomate saine",
+    "description": "Plante sans signe de maladie.",
+    "symptomes": "Feuilles vertes, fruits sains.",
+    "traitement": "Bonnes pratiques culturales."
+  }
+}
