@@ -1,6 +1,8 @@
 1)pour le modéle CNN qui détecte le nom de la maladie d'aprés l'image est dans le dossier model pour entrainer le modéle exécuter le fichier test.py 
 et pour génerer l'API FLASK changer le code du main si vous voulez changer le port ...
 le dataset est nommée Plant_leave_diseases_dataset_without_augmentation se trouve dans google vous pouvez télecharger en zip 
+il faut aussi faire le run du code main.py qui se trouve dans le dossier model
+et il faut changer l'url qui se trouve dans LiveCameraCapturePage.dart (tu peux créer un port dans vs code pour que ton pc soit le serveur ou héberger l'API flask (main.py) )
 2)pour le modéle nlp qui est le chatbot il répond au question liés a l'agriculture est dans le dossier nlp_model il est encore de développement j'ai utilisé une dataset open source sur hugging face cette dataset 
 est en anglais je vais traduire cette dataset en françasi est aprés faire l'entrainement 
 3)pour le modéle de fusion n'est pas précis car le modéle nlp_model n'est pas encore bien développé 
