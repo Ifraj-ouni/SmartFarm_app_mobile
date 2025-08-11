@@ -1,0 +1,11 @@
+1)pour le modéle CNN qui détecte le nom de la maladie d'aprés l'image est dans le dossier model pour entrainer le modéle exécuter le fichier test.py 
+et pour génerer l'API FLASK changer le code du main si vous voulez changer le port ...
+le dataset est nommée Plant_leave_diseases_dataset_without_augmentation se trouve dans google vous pouvez télecharger en zip 
+2)pour le modéle nlp qui est le chatbot il répond au question liés a l'agriculture est dans le dossier nlp_model il est encore de développement j'ai utilisé une dataset open source sur hugging face cette dataset 
+est en anglais je vais traduire cette dataset en françasi est aprés faire l'entrainement 
+3)pour le modéle de fusion n'est pas précis car le modéle nlp_model n'est pas encore bien développé 
+4)Coté Flutter :
+--Firebase (Firestore , Authentification)
+--Cloudinary il faut créer un compte sur le site web cloudinary et avoir un cloud name et uploadpreset et il faut changer dans les pages suivantes : LiveCameraCapturePage.dart , profile_page.dart , add_culture_page.dart
+--OpenWeatherMap il faut avoir une api de ce site eet change cette api dans le code de la page localisation_service.dart (apiKey)
+et aussi dans la page field_list.dart
