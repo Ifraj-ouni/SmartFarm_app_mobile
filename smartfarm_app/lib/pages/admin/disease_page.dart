@@ -157,8 +157,8 @@ class _DiseasePageState extends State<DiseasePage> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
                     foregroundColor: Colors.white,
+                    backgroundColor: Colors.green,
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -285,10 +285,66 @@ class _DiseasePageState extends State<DiseasePage> {
                                   ),
                                 ),
                               ),
+
+                              const SizedBox(height: 6),
+
+                              // 👍👎 Likes/Dislikes
+                              StreamBuilder<QuerySnapshot>(
+                                stream: FirebaseFirestore.instance
+                                    .collection('feedback_maladies')
+                                    .where('id_maladie', isEqualTo: doc.id)
+                                    .snapshots(),
+                                builder: (context, fbSnapshot) {
+                                  if (!fbSnapshot.hasData)
+                                    return const SizedBox();
+                                  final feedbackDocs = fbSnapshot.data!.docs;
+                                  final likeCount = feedbackDocs
+                                      .where(
+                                        (f) =>
+                                            (f.data()
+                                                as Map<
+                                                  String,
+                                                  dynamic
+                                                >)['feedback'] ==
+                                            'like',
+                                      )
+                                      .length;
+                                  final dislikeCount = feedbackDocs
+                                      .where(
+                                        (f) =>
+                                            (f.data()
+                                                as Map<
+                                                  String,
+                                                  dynamic
+                                                >)['feedback'] ==
+                                            'dislike',
+                                      )
+                                      .length;
+
+                                  return Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.thumb_up,
+                                        size: 16,
+                                        color: Colors.green,
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text(likeCount.toString()),
+                                      const SizedBox(width: 16),
+                                      const Icon(
+                                        Icons.thumb_down,
+                                        size: 16,
+                                        color: Colors.red,
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text(dislikeCount.toString()),
+                                    ],
+                                  );
+                                },
+                              ),
                             ],
                           ),
                         ),
-                        // Menu déroulant 3 points
                         PopupMenuButton<String>(
                           onSelected: (value) {
                             if (value == 'modifier') {

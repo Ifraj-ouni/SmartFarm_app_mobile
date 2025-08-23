@@ -47,17 +47,9 @@ class _UsersPageState extends State<UsersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
-        title: const Text("Liste des utilisateurs"),
-        leading: Navigator.canPop(context)
-            ? IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () => Navigator.pop(context),
-              )
-            : null,
-      ),*/
       body: Column(
         children: [
+          // Champ de recherche
           Padding(
             padding: const EdgeInsets.all(8),
             child: TextField(
@@ -86,7 +78,7 @@ class _UsersPageState extends State<UsersPage> {
                 ),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
-                  backgroundColor: Colors.teal,
+                  backgroundColor: Colors.green,
                   elevation: 5,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -149,9 +141,8 @@ class _UsersPageState extends State<UsersPage> {
                           backgroundImage: avatarUrl.isNotEmpty
                               ? NetworkImage(avatarUrl)
                               : const AssetImage('images/default_avatar.jpg')
-                                    as ImageProvider,
+                                  as ImageProvider,
                         ),
-
                         title: Text(data['nom'] ?? 'Sans nom'),
                         subtitle: Text(data['email'] ?? ''),
                         children: [
@@ -190,6 +181,126 @@ class _UsersPageState extends State<UsersPage> {
                                 ),
                               ],
                             ),
+                          ),
+
+                          // 🔽 Historique des maladies
+                          StreamBuilder<QuerySnapshot>(
+                            stream: FirebaseFirestore.instance
+                                .collection('maladies_users_champs')
+                                .where('uid_user', isEqualTo: doc.id)
+                                .orderBy('date', descending: true)
+                                .snapshots(),
+                            builder: (context, snapshot) {
+                              if (snapshot.hasError) {
+                                return const Padding(
+                                  padding: EdgeInsets.all(8),
+                                  child: Text("Erreur de chargement de l'historique"),
+                                );
+                              }
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return const Padding(
+                                  padding: EdgeInsets.all(8),
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+
+                              final maladies = snapshot.data!.docs;
+
+                              if (maladies.isEmpty) {
+                                return const Padding(
+                                  padding: EdgeInsets.all(8),
+                                  child: Text("Aucun historique de maladies"),
+                                );
+                              }
+
+                              return Column(
+                                children: maladies.map((maladieDoc) {
+                                  final maladie = maladieDoc.data()
+                                      as Map<String, dynamic>;
+                                  final Timestamp? ts = maladie['date'];
+                                  final DateTime? date = ts?.toDate();
+                                  final symptomes =
+                                      (maladie['symptomes_observes'] as List?) ??
+                                          [];
+                                  final String maladieId =
+                                      maladie['id_maladie'] ?? '';
+
+                                  return FutureBuilder<DocumentSnapshot>(
+                                    future: FirebaseFirestore.instance
+                                        .collection('maladies')
+                                        .doc(maladieId)
+                                        .get(),
+                                    builder: (context, maladieSnapshot) {
+                                      if (maladieSnapshot.connectionState ==
+                                          ConnectionState.waiting) {
+                                        return const Padding(
+                                          padding: EdgeInsets.all(8),
+                                          child: CircularProgressIndicator(),
+                                        );
+                                      }
+                                      if (!maladieSnapshot.hasData ||
+                                          !maladieSnapshot.data!.exists) {
+                                        return Card(
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 12, vertical: 6),
+                                          child: ListTile(
+                                            title: Text(
+                                                "Maladie inconnue ($maladieId)"),
+                                          ),
+                                        );
+                                      }
+
+                                      final maladieData =
+                                          maladieSnapshot.data!.data()
+                                              as Map<String, dynamic>;
+                                      final String nomMaladie =
+                                          maladieData['nom_francais'] ??
+                                              'Sans nom';
+                                      final String imageMaladie =
+                                          maladieData['image_url'] ?? '';
+
+                                      return Card(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 12, vertical: 6),
+                                        child: ListTile(
+                                          leading: maladie['image_url'] != null
+                                              ? Image.network(
+                                                  maladie['image_url'],
+                                                  width: 50,
+                                                  height: 50,
+                                                  fit: BoxFit.cover,
+                                                )
+                                              : (imageMaladie.isNotEmpty
+                                                  ? Image.network(
+                                                      imageMaladie,
+                                                      width: 50,
+                                                      height: 50,
+                                                      fit: BoxFit.cover,
+                                                    )
+                                                  : const Icon(Icons
+                                                      .image_not_supported)),
+                                          title: Text(nomMaladie),
+                                          subtitle: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              if (date != null)
+                                                Text(
+                                                    "Date : ${date.toLocal()}"),
+                                              Text(
+                                                  "Notes : ${maladie['notes_utilisateur'] ?? ''}"),
+                                              Text(
+                                                  "Symptômes : ${symptomes.join(', ')}"),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                }).toList(),
+                              );
+                            },
                           ),
                         ],
                       ),
