@@ -97,33 +97,55 @@ class _FieldListState extends State<FieldList> {
   }
 
   Future<void> _deleteField(DocumentSnapshot doc) async {
-    final ok = await showDialog<bool>(
-      context: context,
-      builder: (_) => AlertDialog(
-        title: const Text('Confirmer la suppression'),
-        content: const Text('Voulez-vous vraiment supprimer ce champ ?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: const Text('Annuler'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(context, true),
-            child: const Text('Supprimer'),
-          ),
-        ],
-      ),
-    );
-    if (ok == true) {
-      await FirebaseFirestore.instance
-          .collection('fields')
-          .doc(doc.id)
-          .delete();
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('Champ supprimé')));
+  final ok = await showDialog<bool>(
+    context: context,
+    builder: (_) => AlertDialog(
+      title: const Text('Confirmer la suppression'),
+      content: const Text('Voulez-vous vraiment supprimer ce champ ? Toutes les maladies liées seront aussi supprimées.'),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context, false),
+          child: const Text('Annuler'),
+        ),
+        TextButton(
+          onPressed: () => Navigator.pop(context, true),
+          child: const Text('Supprimer'),
+        ),
+      ],
+    ),
+  );
+
+  if (ok == true) {
+    final batch = FirebaseFirestore.instance.batch();
+
+    try {
+      // 🟢 Supprimer le champ
+      final fieldRef = FirebaseFirestore.instance.collection('fields').doc(doc.id);
+      batch.delete(fieldRef);
+
+      // 🟢 Chercher les maladies liées à ce champ
+      final maladiesSnap = await FirebaseFirestore.instance
+          .collection('maladies_users_champs')
+          .where('id_field', isEqualTo: doc.id)
+          .get();
+
+      for (var m in maladiesSnap.docs) {
+        batch.delete(m.reference);
+      }
+
+      // 🟢 Exécuter la suppression en batch
+      await batch.commit();
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Champ et maladies associées supprimés')),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Erreur lors de la suppression : $e')),
+      );
     }
   }
+}
 
   @override
   Widget build(BuildContext context) {

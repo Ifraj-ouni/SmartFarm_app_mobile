@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:smartfarm_app/pages/admin/edit_user_page.dart';
 import 'package:smartfarm_app/pages/admin/add_user_page.dart';
+import 'package:intl/intl.dart';
 
 class UsersPage extends StatefulWidget {
   const UsersPage({super.key});
@@ -141,7 +142,7 @@ class _UsersPageState extends State<UsersPage> {
                           backgroundImage: avatarUrl.isNotEmpty
                               ? NetworkImage(avatarUrl)
                               : const AssetImage('images/default_avatar.jpg')
-                                  as ImageProvider,
+                                    as ImageProvider,
                         ),
                         title: Text(data['nom'] ?? 'Sans nom'),
                         subtitle: Text(data['email'] ?? ''),
@@ -194,7 +195,9 @@ class _UsersPageState extends State<UsersPage> {
                               if (snapshot.hasError) {
                                 return const Padding(
                                   padding: EdgeInsets.all(8),
-                                  child: Text("Erreur de chargement de l'historique"),
+                                  child: Text(
+                                    "Erreur de chargement de l'historique",
+                                  ),
                                 );
                               }
                               if (snapshot.connectionState ==
@@ -216,13 +219,21 @@ class _UsersPageState extends State<UsersPage> {
 
                               return Column(
                                 children: maladies.map((maladieDoc) {
-                                  final maladie = maladieDoc.data()
-                                      as Map<String, dynamic>;
+                                  final maladie =
+                                      maladieDoc.data() as Map<String, dynamic>;
                                   final Timestamp? ts = maladie['date'];
                                   final DateTime? date = ts?.toDate();
-                                  final symptomes =
-                                      (maladie['symptomes_observes'] as List?) ??
-                                          [];
+
+                                  // 🔹 Formater la date en français
+                                  String dateString = '';
+                                  if (date != null) {
+                                    dateString = DateFormat(
+                                      'dd MMMM yyyy – HH:mm',
+                                      'fr_FR',
+                                    ).format(date);
+                                  }
+
+                                  //final symptomes =(maladie['symptomes_observes']as List?) ??[];
                                   final String maladieId =
                                       maladie['id_maladie'] ?? '';
 
@@ -243,10 +254,13 @@ class _UsersPageState extends State<UsersPage> {
                                           !maladieSnapshot.data!.exists) {
                                         return Card(
                                           margin: const EdgeInsets.symmetric(
-                                              horizontal: 12, vertical: 6),
+                                            horizontal: 12,
+                                            vertical: 6,
+                                          ),
                                           child: ListTile(
                                             title: Text(
-                                                "Maladie inconnue ($maladieId)"),
+                                              "Maladie inconnue ($maladieId)",
+                                            ),
                                           ),
                                         );
                                       }
@@ -256,13 +270,15 @@ class _UsersPageState extends State<UsersPage> {
                                               as Map<String, dynamic>;
                                       final String nomMaladie =
                                           maladieData['nom_francais'] ??
-                                              'Sans nom';
+                                          'Sans nom';
                                       final String imageMaladie =
                                           maladieData['image_url'] ?? '';
 
                                       return Card(
                                         margin: const EdgeInsets.symmetric(
-                                            horizontal: 12, vertical: 6),
+                                          horizontal: 12,
+                                          vertical: 6,
+                                        ),
                                         child: ListTile(
                                           leading: maladie['image_url'] != null
                                               ? Image.network(
@@ -272,14 +288,16 @@ class _UsersPageState extends State<UsersPage> {
                                                   fit: BoxFit.cover,
                                                 )
                                               : (imageMaladie.isNotEmpty
-                                                  ? Image.network(
-                                                      imageMaladie,
-                                                      width: 50,
-                                                      height: 50,
-                                                      fit: BoxFit.cover,
-                                                    )
-                                                  : const Icon(Icons
-                                                      .image_not_supported)),
+                                                    ? Image.network(
+                                                        imageMaladie,
+                                                        width: 50,
+                                                        height: 50,
+                                                        fit: BoxFit.cover,
+                                                      )
+                                                    : const Icon(
+                                                        Icons
+                                                            .image_not_supported,
+                                                      )),
                                           title: Text(nomMaladie),
                                           subtitle: Column(
                                             crossAxisAlignment:
@@ -287,11 +305,15 @@ class _UsersPageState extends State<UsersPage> {
                                             children: [
                                               if (date != null)
                                                 Text(
-                                                    "Date : ${date.toLocal()}"),
-                                              Text(
-                                                  "Notes : ${maladie['notes_utilisateur'] ?? ''}"),
-                                              Text(
-                                                  "Symptômes : ${symptomes.join(', ')}"),
+                                                  '📅 $dateString',
+                                                  style: const TextStyle(
+                                                    fontSize: 13,
+                                                    color: Colors.grey,
+                                                  ),
+                                                ),
+
+                                              //Text("Notes : ${maladie['notes_utilisateur'] ?? ''}",),
+                                              //Text("Symptômes : ${symptomes.join(', ')}",),
                                             ],
                                           ),
                                         ),
