@@ -208,6 +208,7 @@ class _FieldListState extends State<FieldList> {
                   child: FloatingActionButton(
                     onPressed: _goToAddField,
                     backgroundColor: primaryGreen,
+                    foregroundColor: Colors.white,
                     tooltip: 'Ajouter un champ',
                     heroTag: 'add_field_fab',
                     child: const Icon(Icons.add),

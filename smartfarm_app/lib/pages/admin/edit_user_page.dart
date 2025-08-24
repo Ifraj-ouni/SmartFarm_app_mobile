@@ -642,7 +642,7 @@ Widget _buildFieldMaladies(String fieldId) {
   return StreamBuilder<QuerySnapshot>(
     stream: FirebaseFirestore.instance
         .collection('maladies_users_champs')
-        .where('id_field', isEqualTo: fieldId)
+        .where("id_field", isEqualTo: fieldId)
         .orderBy('date', descending: true)
         .snapshots(),
     builder: (context, snapshotMaladies) {
@@ -662,7 +662,7 @@ Widget _buildFieldMaladies(String fieldId) {
           final maladieId = maladieData['id_maladie'] as String?;
           final Timestamp? ts = maladieData['date'];
           final DateTime? date = ts?.toDate();
-          final List symptomes =
+          final List symptomesObserves =
               (maladieData['symptomes_observes'] as List?) ?? [];
 
           if (maladieId == null) return const SizedBox();
@@ -692,6 +692,12 @@ Widget _buildFieldMaladies(String fieldId) {
                   snapshotDetail.data!.data() as Map<String, dynamic>;
               final nomMaladie = detail['nom_francais'] ?? 'Sans nom';
               final imageMaladie = detail['image_url'] ?? '';
+              final symptomesParDefaut = detail['symptomes'] ?? '';
+
+              // Texte à afficher : Symptômes observés ou symptomes de la collection
+              final symptomesTexte = symptomesObserves.isNotEmpty
+                  ? "Symptômes observés : ${symptomesObserves.join(', ')}"
+                  : "Symptômes : $symptomesParDefaut";
 
               return Card(
                 margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 0),
@@ -705,8 +711,7 @@ Widget _buildFieldMaladies(String fieldId) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       if (date != null) Text("Date : ${date.toLocal()}"),
-                      if (symptomes.isNotEmpty)
-                        Text("Symptômes : ${symptomes.join(', ')}"),
+                      if (symptomesTexte.isNotEmpty) Text(symptomesTexte),
                     ],
                   ),
                 ),
