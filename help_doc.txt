@@ -11,3 +11,7 @@ est en anglais je vais traduire cette dataset en françasi est aprés faire l'en
 --Cloudinary il faut créer un compte sur le site web cloudinary et avoir un cloud name et uploadpreset et il faut changer dans les pages suivantes : LiveCameraCapturePage.dart , profile_page.dart , add_culture_page.dart
 --OpenWeatherMap il faut avoir une api de ce site eet change cette api dans le code de la page localisation_service.dart (apiKey)
 et aussi dans la page field_list.dart
+
+
+
+pip install -r requirements.txt
